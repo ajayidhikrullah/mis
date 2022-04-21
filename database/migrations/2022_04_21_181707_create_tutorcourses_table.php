@@ -13,7 +13,7 @@ class CreateTutorcoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tutorcourses', function (Blueprint $table) {
+        Schema::create('tutor_courses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tutor_id');
             $table->foreignId('course_id');
@@ -28,6 +28,6 @@ class CreateTutorcoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tutorcourses');
+        Schema::dropIfExists('tutor_courses');
     }
 }
