@@ -23,3 +23,15 @@ Route::get('courses', function(){
     return view('courses');
 });
 
+// admin
+Route::get('admin', function(){
+    return view('admin');
+});
+
+Route::get('student_add_course', function(){
+    return view('students.index');
+});
+
+Route::get('tutor_add_course', function(){
+    return view('tutors.create');
+});

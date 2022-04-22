@@ -1,73 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-          <a class="navbar-brand" href="#">Management Information System</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Home
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Search">
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
 
+@extends('layouts.master')
 
-      @yield('content')
+  @section('contents')
 
+    <div class="container">
+        <form>
+            <legend>Users</legend>
+            
+            <p>Kindly register as either an Administrator, Tutor or Students</p>
+            
+            <div class="form-group">
+              <label for="full_name">Full Name</label>
+              <input type="text" name="full_name" class="form-control" id="full_name" placeholder="your Full name please...">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your student email">
+              <small id="emailHelp" class="form-text text-muted"><i>We'll never share your email with anyone else.</i></small>
+            </div>
 
-      
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" name="phone" id="phone" aria-describedby="phone" placeholder="Enter your Phone">
+              {{-- <small id="emailHelp" class="form-text text-muted"><i>We'll never share your email with anyone else.</i></small> --}}
+            </div>
 
+            <div class="form-group">
+              <label for="Address">Address</label>
+              <input type="text" class="form-control" name="address" id="address" aria-describedby="address" placeholder="Enter your address">
+              {{-- <small id="emailHelp" class="form-text text-muted"><i>We'll never share your email with anyone else.</i></small> --}}
+            </div>
 
-</body>
+            <div class="form-group">
+              <label for="register_as">Register as...</label>
+              <select class="form-select" id="register_as" name="register_as">
+                <option value="1">Admin</option>
+                <option value="2">Tutor</option>
+                <option value="3">Students</option>
+              </select>
+            </div>
 
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+  @endsection
