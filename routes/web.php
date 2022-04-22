@@ -28,8 +28,16 @@ Route::get('admin', function(){
     return view('admin');
 });
 
-Route::get('student_add_course', function(){
+Route::get('student', function(){
     return view('students.index');
+});
+
+Route::get('student_add_course', function(){
+    return view('students.create');
+});
+
+Route::get('tutor', function(){
+    return view('tutors.index');
 });
 
 Route::get('tutor_add_course', function(){

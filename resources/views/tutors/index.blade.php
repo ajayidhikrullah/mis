@@ -1,7 +1,20 @@
 @extends('layouts.master')
 
-    @section('contents')
-    <p>List of All courses available</p>
+@section('contents')
+
+<ul>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle btn-danger" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutor Dash</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="tutor_add_course">Register courses</a>
+        <a class="dropdown-item" href="tutor">View registered courses</a>
+      </div>
+    </li>
+  </ul>
+
+<h3>Already Registered Courses</h3>
+<p>Tutor Name: Ade Hayjay</p>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -20,6 +33,5 @@
                 <td><a class="btn btn-danger" href="">Delete</a></td>
             </tr>
         </tbody>
-    </table>
-        
-    @endsection
+    </table>   
+@endsection

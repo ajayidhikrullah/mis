@@ -1,43 +1,35 @@
 @extends('layouts.master')
 
-
 @section('contents')
-    
-    <fieldset>
-        <div class="row">
-            <div class="col-6">    
-                <form class="form-group">
-                    <legend>Continue reg...</legend>
 
-                    <p>Please register for multiple preferred courses</p>
+<ul>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle btn-danger" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Students Dash</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="tutor_add_course">Register courses</a>
+        <a class="dropdown-item" href="tutor">View registered courses</a>
+      </div>
+    </li>
+  </ul>
 
-                <div class="form-group">
-                    <label for="staticEmail">Email</label>
-                    <input type="text" readonly="" class="form-control" id="staticEmail" value="email@example.com">
-                </div>
-
-                {{-- <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your student email">
-                    <small id="emailHelp" class="form-text text-muted"><i>We'll never share your email with anyone else.</i></small>
-                </div> --}}
-
-        
-                    
-                    <div class="form-group">
-                        <label for="exampleSelect2">Courses</label>
-                        <select multiple="" class="form-select" id="exampleSelect2">
-                        <option>English</option>
-                        <option>Mathematics</option>
-                        <option>Chemistry</option>
-                        <option>Computer</option>
-                        {{-- <option>5</option> --}}
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>    
-        </div>
-    </fieldset>
+<p>Already Registered</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">S/N</th>
+            <th scope="col">Course title</th>
+            <th scope="col">Course Code</th>
+            {{-- <th scope="col">School</th> --}}
+            {{-- <th scope="col">Action</th> --}}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>English</td>
+                <td>Eng-100</td>
+                <td><a class="btn btn-danger" href="">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>   
 @endsection
-
