@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// home route
 Route::get('/', function () {
     return view('index');
 });
+
+//courses route
+Route::get('courses', function(){
+    return view('courses');
+});
+
