@@ -1,7 +1,4 @@
-@extends('layouts.master')
-
-    @section('contents')
-    <p>List of All courses available</p>
+<h1>Registered Students</h1>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -21,5 +18,3 @@
             </tr>
         </tbody>
     </table>
-        
-    @endsection

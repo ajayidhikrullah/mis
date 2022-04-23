@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +25,35 @@ Route::get('courses', function(){
 });
 
 // admin
-Route::get('admin', function(){
-    return view('admin');
+Route::group(['prefix' =>'admin'], function(){
+    Route::get('/', 'Admin\\AdminController@dashboard');
+    
+    //admincourse
+    Route::get('/viewcourses', function(){
+        return view('admin.courses.view');
+    })->name('admin.viewcourses');
+    
+    Route::get('/addcourses', function(){
+        return view('admin.courses.add');
+    })->name('admin.addcourses');
+    //admintutors
+    Route::get('/addtutors', function(){
+        return view('admin.tutors.add');
+    })->name('admin.addtutors');
+    
+    Route::get('/viewtutors', function(){
+        return view('admin.tutors.view');
+    })->name('admin.viewtutors');
+    
+    //adminstudents
+    // admin students
+    Route::get('admin/viewstudents', function(){
+        return view('admin.students.view');
+    })->name('admin.viewstudents');
 });
 
+
+// admin students
 Route::get('student', function(){
     return view('students.index');
 });
@@ -40,6 +66,3 @@ Route::get('tutor', function(){
     return view('tutors.index');
 });
 
-Route::get('tutor_add_course', function(){
-    return view('tutors.create');
-});
