@@ -35,25 +35,6 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/viewtutors', 'TutorController@index')->name('admin.viewtutors');
     Route::get('/addtutors', 'TutorController@create')->name('admin.addtutors');
     
-    
     //adminstudents
-    // admin students
-    Route::get('admin/viewstudents', function(){
-        return view('admin.students.view');
-    })->name('admin.viewstudents');
+    Route::get('admin/viewstudents', 'StudentController@index')->name('admin.viewstudents');
 });
-
-
-// admin students
-Route::get('student', function(){
-    return view('students.index');
-});
-
-Route::get('student_add_course', function(){
-    return view('students.create');
-});
-
-Route::get('tutor', function(){
-    return view('tutors.index');
-});
-
