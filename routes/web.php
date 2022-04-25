@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,15 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // home route
-Route::get('/', function () {
-    return view('index');
+Route::group(['namespace' => 'Student'], function(){
+    Route::get('/', 'StudentController@index')->name('student');
+    Route::get('/viewstudents', 'StudentController@view')->name('admin.viewstudents');
 });
-
-//courses route
-Route::get('courses', function(){
-    return view('courses');
-});
-
 // admin
 Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/', 'AdminController@dashboard');
@@ -36,5 +33,4 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/addtutors', 'TutorController@create')->name('admin.addtutors');
     
     //adminstudents
-    Route::get('admin/viewstudents', 'StudentController@index')->name('admin.viewstudents');
 });
