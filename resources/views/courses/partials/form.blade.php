@@ -1,7 +1,6 @@
-<form>
-  @csrf
+<form method="POST" action="{{route('course.store')}}">
     <legend>Create courses</legend>
-    
+    {{ csrf_field() }}    
     <p>Kindly create courses as an Admin</p>
     
     <div class="form-group">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
@@ -17,7 +18,13 @@ class CourseController extends Controller
         return view('admin.courses.add');
     }
 
-    public function store(){
-        
+    public function store(Request $request){
+        $course = new Course;
+        $course->title = $request->title;
+        $course->code = $request->code;
+
+        $course->save();
+
+        return redirect()->route('admin.addcourses');
     }
 }
