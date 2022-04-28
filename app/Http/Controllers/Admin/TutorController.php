@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Tutor;
 
 class TutorController extends Controller
 {
@@ -14,5 +15,9 @@ class TutorController extends Controller
 
     public function create(){
         return view('admin.tutors.add');
+    }
+
+    public function store(Request $request){
+        $tutor = Tutor::all();
     }
 }

@@ -28,10 +28,13 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     //admincourse
     Route::get('/viewcourses', 'CourseController@index')->name('admin.viewcourses');
     Route::get('/addcourses', 'CourseController@create')->name('admin.addcourses');
+    //admin add course
     Route::post('/store', 'CourseController@store')->name('course.store');
     //admintutors
     Route::get('/viewtutors', 'TutorController@index')->name('admin.viewtutors');
     Route::get('/addtutors', 'TutorController@create')->name('admin.addtutors');
+    //admin add tutor
+    Route::get('/store', 'TutorController@store')->name('admin.addtutors');
     
     //adminstudents
 });
