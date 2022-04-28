@@ -10,7 +10,9 @@ class CourseController extends Controller
 {
     //show courses
     public function index(){
-        return view('admin.courses.view');
+        $courses = Course::all();
+        // dd($courses);
+        return view('admin.courses.view', compact('courses'));
     }
 
     //add courses

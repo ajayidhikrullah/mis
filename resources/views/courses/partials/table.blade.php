@@ -8,11 +8,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>English</td>
-            <td>Eng-100</td>
-            <td><a class="btn btn-danger" href="">Delete</a></td>
-        </tr>
+        @foreach ($courses as $course)
+            <tr>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$course->title}}</td>
+                    <td>{{$course->code}}</td>
+                    <td><a class="btn btn-danger" href="">Delete</a></td>
+            </tr>
+        @endforeach
     </tbody>
 </table>

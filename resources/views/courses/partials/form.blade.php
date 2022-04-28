@@ -11,7 +11,6 @@
     <div class="form-group">
       <label for="code">Course Code</label>
       <input type="text" class="form-control" name="code" id="code" aria-describedby="code" placeholder="Enter your course code">
-      {{-- <small id="emailHelp" class="form-text text-muted"><i>We'll never share your email with anyone else.</i></small> --}}
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -5,6 +5,7 @@
 
     <div class="container">
         <form>
+          {{ csrf_field() }}
             <legend>Students Registration</legend>
             
             <p>Kindly register as a Students</p>
