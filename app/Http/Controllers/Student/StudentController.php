@@ -15,4 +15,8 @@ class StudentController extends Controller
     public function view(){
         return view('admin.students.view');
     }
+
+    public function store(){
+        
+    }
 }
