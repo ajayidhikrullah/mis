@@ -1,4 +1,5 @@
 <form>
+  @csrf
     <legend>Create courses</legend>
     
     <p>Kindly create courses as an Admin</p>
