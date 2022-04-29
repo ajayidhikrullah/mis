@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-6">    
             <form class="form-group">
+                
                 <legend>Continue reg...</legend>
 
                 <p>Please register for multiple preferred courses</p>

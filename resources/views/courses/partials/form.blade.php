@@ -5,12 +5,12 @@
     
     <div class="form-group">
       <label for="title">Course title</label>
-      <input type="text" name="title" class="form-control" id="title" placeholder="type in course title">
+      <input type="text" name="course_title" class="form-control" id="title" placeholder="type in course title">
     </div>
     
     <div class="form-group">
       <label for="code">Course Code</label>
-      <input type="text" class="form-control" name="code" id="code" aria-describedby="code" placeholder="Enter your course code">
+      <input type="text" class="form-control" name="course_code" id="code" aria-describedby="code" placeholder="Enter your course code">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

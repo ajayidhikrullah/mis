@@ -10,7 +10,7 @@ class CourseController extends Controller
 {
     //show courses
     public function index(){
-        $courses = Course::all();
+        $courses = Course::latest()->get();
         // dd($courses);
         return view('admin.courses.view', compact('courses'));
     }
@@ -22,11 +22,9 @@ class CourseController extends Controller
 
     public function store(Request $request){
         $course = new Course;
-        $course->title = $request->title;
-        $course->code = $request->code;
-
+        $course->title = $request->course_title;
+        $course->code = $request->course_code;
         $course->save();
-
         return redirect()->route('admin.addcourses');
     }
 }
