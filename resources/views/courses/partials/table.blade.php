@@ -13,6 +13,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$course->title}}</td>
                     <td>{{$course->code}}</td>
+                    <td><a class="btn btn-primary" href="">Edit courses</a></td>
                     <td><a class="btn btn-danger" href="">Delete</a></td>
             </tr>
         @endforeach

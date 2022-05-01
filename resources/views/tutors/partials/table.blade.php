@@ -6,16 +6,20 @@
             <th scope="col">S/N</th>
             <th scope="col">Tutor Name</th>
             <th scope="col">Tutors EMail</th>
-            {{-- <th scope="col">School</th> --}}
-            {{-- <th scope="col">Action</th> --}}
+            <th scope="col">Tutor Courses</th>
+            <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Ade Hayjay</td>
-                <td>ade@ade.com</td>
-                <td><a class="btn btn-danger" href="">Delete</a></td>
-            </tr>
+            @foreach ($tutors as $tutor)
+            {{-- {{dd($tutor->user)}} --}}
+                <tr>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$tutor->user->full_name}}</td>
+                    <td>{{$tutor->user->email}}</td>
+                    <td><a class="btn btn-success" href="">View courses</a></td>
+                    <td><a class="btn btn-danger" href="">Delete</a></td>
+                </tr>
+            @endforeach
         </tbody>
     </table>   

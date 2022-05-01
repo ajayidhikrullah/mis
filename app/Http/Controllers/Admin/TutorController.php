@@ -13,8 +13,10 @@ class TutorController extends Controller
 {
     //show tutors
     public function index(){
-        
-        return view('admin.tutors.view');
+        $tutors = Tutor::get();
+        // $tutors = App\Models\Tutor::first();
+        // dd($tutors);
+        return view('admin.tutors.view', compact('tutors'));
     }
 
     public function create(){
@@ -42,12 +44,12 @@ class TutorController extends Controller
         $tutors->save();        
 
         $selectedTutorCourses = $request->course_id;
-        foreach ( $selectedTutorCourses as $selectedCourse) {
-            $tutorCourse = new TutorCourse;
-            $tutorCourse->tutor_id = $tutors->id;
-            $tutorCourse->course_id = $selectedCourse;            
-            $tutorCourse->save();
-        }
+            foreach ( $selectedTutorCourses as $selectedCourse) {
+                $tutorCourse = new TutorCourse;
+                $tutorCourse->tutor_id = $tutors->id;
+                $tutorCourse->course_id = $selectedCourse;            
+                $tutorCourse->save();
+            }
         
         return redirect()->route('admin.addtutors');
     }
