@@ -14,8 +14,10 @@
                 <th scope="row">1</th>
                 <td>English</td>
                 <td>Eng-100</td>
-                <td><a class="btn btn-success" href="">View courses</a></td>
+                <td><a class="btn btn-success" href="">View Students</a></td>
+                <td><a class="btn btn-danger" href="">Edit</a></td>
                 <td><a class="btn btn-danger" href="">Delete</a></td>
+
             </tr>
         </tbody>
     </table>
