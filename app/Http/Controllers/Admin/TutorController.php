@@ -13,8 +13,7 @@ class TutorController extends Controller
 {
     //show tutors
     public function index(){
-        $tutors = Tutor::get();
-        // $tutors = App\Models\Tutor::first();
+        $tutors = Tutor::latest()->get();
         // dd($tutors);
         return view('admin.tutors.view', compact('tutors'));
     }
