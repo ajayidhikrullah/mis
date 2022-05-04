@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\StudentCourse;
 
 class StudentController extends Controller
 {
@@ -47,7 +48,7 @@ class StudentController extends Controller
         $selectedStudentCourses = $request->course_id;
             foreach ( $selectedStudentCourses as $selectedStudentCourse) {
                 $studentCourse = new StudentCourse;
-                $studentCourse->tutor_id = $tutors->id;
+                $studentCourse->student_id = $students->id;
                 $studentCourse->course_id = $selectedStudentCourse;            
                 $studentCourse->save();
             }
