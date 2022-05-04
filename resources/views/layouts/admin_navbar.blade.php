@@ -39,7 +39,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Students</a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{{route('admin.viewstudents')}}">View Students</a>
+                  <a class="dropdown-item" href="{{route('viewstudents')}}">View Students</a>
                   {{-- <a class="dropdown-item" href="tutors">Add Courses</a> --}}
                 </div>
             </li>        

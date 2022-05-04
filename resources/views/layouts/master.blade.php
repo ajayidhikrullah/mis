@@ -22,7 +22,6 @@
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
                 <a class="nav-link active" href="/">Home
-                  {{-- <span class="visually-hidden">(current)</span> --}}
                 </a>
               </li>
               <li class="nav-item">

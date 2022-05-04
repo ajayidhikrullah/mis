@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 // home route
 Route::group(['namespace' => 'Student'], function(){
-    Route::get('/', 'StudentController@index')->name('student');
-    Route::get('/viewstudents', 'StudentController@view')->name('admin.viewstudents');
+    Route::get('/', 'StudentController@index')->name('students');
+    Route::get('/viewstudents', 'StudentController@create')->name('viewstudents');
+    Route::post('/storestudents', 'StudentController@store')->name('students.store');
 });
+
 // admin
 Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/', 'AdminController@dashboard');
@@ -29,11 +31,10 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/viewcourses', 'CourseController@index')->name('admin.viewcourses');
     Route::get('/addcourses', 'CourseController@create')->name('admin.addcourses');
     Route::post('/storecourse', 'CourseController@store')->name('course.store');
+    
     //admintutors
     Route::get('/viewtutors', 'TutorController@index')->name('admin.viewtutors');
     Route::get('/addtutors', 'TutorController@create')->name('admin.addtutors');
-    Route::post('', 'TutorController@store')->name('tutors.store');
-    
-    //adminstudents
+    Route::post('/storetutors', 'TutorController@store')->name('tutors.store');
 });
 
