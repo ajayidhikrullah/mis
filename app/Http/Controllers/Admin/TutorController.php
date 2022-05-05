@@ -27,7 +27,6 @@ class TutorController extends Controller
     public function store(Request $request){
 
         $user = new User;
-        // $course = new Course;
         $tutors = new Tutor;
 
         //save to users

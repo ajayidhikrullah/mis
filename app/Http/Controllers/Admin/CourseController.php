@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 
 class CourseController extends Controller
-{
+{    
     //show courses
     public function index(){
         $courses = Course::latest()->get();

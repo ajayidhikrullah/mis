@@ -14,19 +14,36 @@ use App\Models\StudentCourse;
 class StudentController extends Controller
 {
 
+    public $courses;
+
+    public function __construct(Course $courses){
+        $this->courses = $courses;
+    }
 
     //show student home page
     public function index(){
-        $students = Student::all();
-        $courses = Course::all();
-        return view('/index', compact('students', 'courses'));
+        $courses = $this->courses::all();
+        return view('/index', compact('courses'));
     }
 
     public function create(){
+        $students = Student::latest()->get();
+        $courses = $this->courses::all();
+        return view('admin.students.view', compact('students', 'courses'));
+    }
 
-        return view('admin.students.view');
+    public function view($id){
+        $students = Student::find($id);
+        foreach($students->courses as $std){
+            dd($std);
+        }
+        dd($students);
 
-        // return view('/index', compact('courses'));
+
+        // foreach ($students as $std){
+        // }
+        
+        return view('admin.students.eachstudentcourses', compact('students'));
     }
 
     public function store(Request $request){

@@ -27,12 +27,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="student">Students</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="courses">Courses</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tutor">Teachers</a>
-              </li>
               
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
