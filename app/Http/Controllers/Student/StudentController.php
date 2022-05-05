@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Student;
 use App\Models\User;
-use App\Models\StudentCourse;
+use App\Models\CourseStudent;
 
 class StudentController extends Controller
 {
@@ -28,22 +28,12 @@ class StudentController extends Controller
 
     public function create(){
         $students = Student::latest()->get();
-        $courses = $this->courses::all();
         return view('admin.students.view', compact('students', 'courses'));
     }
 
     public function view($id){
-        $students = Student::find($id);
-        foreach($students->courses as $std){
-            dd($std);
-        }
-        dd($students);
-
-
-        // foreach ($students as $std){
-        // }
-        
-        return view('admin.students.eachstudentcourses', compact('students'));
+        $student = Student::latest()->where('id', $id)->with('courses')->first();
+        return view('admin.students.eachstudentcourses', compact('student'));
     }
 
     public function store(Request $request){
@@ -64,7 +54,7 @@ class StudentController extends Controller
         //get list of selected courses from students to be saved to database
         $selectedStudentCourses = $request->course_id;
             foreach ( $selectedStudentCourses as $selectedStudentCourse) {
-                $studentCourse = new StudentCourse;
+                $studentCourse = new CourseStudent;
                 $studentCourse->student_id = $students->id;
                 $studentCourse->course_id = $selectedStudentCourse;            
                 $studentCourse->save();

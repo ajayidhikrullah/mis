@@ -11,12 +11,12 @@
       </tr>
     </thead>
     <tbody>
-        @foreach($students as $std)
+        @foreach($student->courses as $std)
             <tr>
                 <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$std->code}}</td>
+                <td>{{$std->title}}</td>
                 <td></td>
-                <td>Otto</td>
-                <td>@mdo</td>
             </tr>
         @endforeach
     </tbody>

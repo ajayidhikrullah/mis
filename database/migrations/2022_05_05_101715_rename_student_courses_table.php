@@ -14,7 +14,7 @@ class RenameStudentCoursesTable extends Migration
     public function up()
     {
         //
-        Schema::rename('student_courses', 'course_students');
+        Schema::rename('course_student', 'course_students');
     }
 
     /**
