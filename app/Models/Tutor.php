@@ -12,4 +12,9 @@ class Tutor extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+        // belongstomany relationship between tutor and course
+    public function courses(){
+        return $this->belongsToMany(Course::class, 'tutor_courses', 'tutor_id', 'course_id');
+    }
 }

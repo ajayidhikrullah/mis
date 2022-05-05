@@ -21,7 +21,7 @@ Route::group(['namespace' => 'Student'], function(){
     Route::get('/', 'StudentController@index')->name('students');
     Route::get('/viewstudents', 'StudentController@create')->name('viewstudents');
     Route::post('/storestudents', 'StudentController@store')->name('students.store');
-    Route::get('/mycourses/{id}', 'StudentController@view')->name('mycourses');
+    Route::get('/student/courses/{id}', 'StudentController@view')->name('mycourses');
 });
 
 // admin
@@ -37,5 +37,7 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/viewtutors', 'TutorController@index')->name('admin.viewtutors');
     Route::get('/addtutors', 'TutorController@create')->name('admin.addtutors');
     Route::post('/storetutors', 'TutorController@store')->name('tutors.store');
+    Route::get('/tutor/course/{id}', 'TutorController@view')->name('admin.mycourse');
+
 });
 

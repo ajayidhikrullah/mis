@@ -9,12 +9,16 @@ class Course extends Model
 {
     use HasFactory;
     // protected $fillable = ['title', 'code'];
-    protected $table = 'courses';
+    protected $table = 'courses'; //use courses as the naming convention all through
 
 
     public function student()
     {
-        // return $this->belongsToMany('App\Models\Course', 'student_courses', 'course_id', 'student_id');
         return $this->belongsToMany(Student::class, 'course_students', 'student_id', 'course_id');
+    }
+
+        //relationship between tutor and course
+    public function tutor(){
+        return $this->belongsToMany(Tutor::class, 'tutor_courses', 'course_id', 'tutor_id');
     }
 }

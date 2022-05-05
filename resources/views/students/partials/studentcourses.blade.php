@@ -1,4 +1,10 @@
-<h3>List of Courses by each students</h3>
+<div class="container">
+    
+<h3>
+    Welcome
+    <span class="badge rounded-pill bg-danger"><a href=""></a>{{$student->user->full_name}}</span>
+    Your registered courses
+</h3>
 
 
 <table class="table table-striped table-hover table-dark">
@@ -7,16 +13,14 @@
         <th scope="col">S/N</th>
         <th scope="col">Student Course Code</th>
         <th scope="col">Student Course Title</th>
-        {{-- <th scope="col">Handle</th> --}}
       </tr>
     </thead>
     <tbody>
-        @foreach($student->courses as $std)
+        @foreach($student->courses as $studentCourse)
             <tr>
                 <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$std->code}}</td>
-                <td>{{$std->title}}</td>
-                <td></td>
+                <td>{{$studentCourse->code}}</td>
+                <td>{{$studentCourse->title}}</td>
             </tr>
         @endforeach
     </tbody>

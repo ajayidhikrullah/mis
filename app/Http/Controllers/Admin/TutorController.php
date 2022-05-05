@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\Course;
 use App\Models\User;
-use App\Models\Tutorcourse;
+use App\Models\TutorCourse;
 
 class TutorController extends Controller
 {
@@ -20,8 +20,12 @@ class TutorController extends Controller
 
     public function create(){
         $courses = Course::all();
-        // dd($courses);
         return view('admin.tutors.add', compact('courses'));
+    }
+
+    public function view($id){
+            $tutor = Tutor::latest()->where('id', $id)->with('courses')->first();
+            return view('admin.tutors.eachtutorcourses', compact('tutor'));
     }
 
     public function store(Request $request){

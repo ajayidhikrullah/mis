@@ -28,6 +28,7 @@ class StudentController extends Controller
 
     public function create(){
         $students = Student::latest()->get();
+        $courses = $this->courses::all();
         return view('admin.students.view', compact('students', 'courses'));
     }
 

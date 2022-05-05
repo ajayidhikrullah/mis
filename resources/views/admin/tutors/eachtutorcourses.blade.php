@@ -1,5 +1,5 @@
 @extends('layouts.admin_navbar')
 
     @section('contents')
-                @include('students.partials.studentcourses')
+                @include('tutors.partials.tutorcourses')
     @endsection

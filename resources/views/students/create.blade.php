@@ -2,6 +2,7 @@
     
 @section('contents')
 
+    <p><a href="javascript:history.back()">.../Back</a></p>
 
 <fieldset>
     <div class="row">

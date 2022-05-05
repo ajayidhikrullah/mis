@@ -5,7 +5,7 @@
 
   <div class="container">
     <div class="col-6">    
-
+        <p><a href="javascript:history.back()">.../Back</a></p>
             <form method="POST" action="{{route('students.store')}}">
             <div class="form-group">
                 <label for="full_name">Students name</label>
