@@ -2,9 +2,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
-        <th scope="col">S/N</th>
-        <th scope="col">Course title</th>
-        <th scope="col">Course Code</th>
+            <th scope="col">S/N</th>
+            <th scope="col">Course title</th>
+            <th scope="col">Course Code</th>
+            <th scope="col"> Take Action</th>
         </tr>
     </thead>
     <tbody>
@@ -13,7 +14,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$course->title}}</td>
                     <td>{{$course->code}}</td>
-                    <td><a class="btn btn-primary" href="">Edit courses</a></td>
+                    <td><a class="btn btn-primary" href="{{route('course.edit', $course->id)}}">Edit courses</a></td>
                     <td><a class="btn btn-danger" href="">Delete</a></td>
             </tr>
         @endforeach

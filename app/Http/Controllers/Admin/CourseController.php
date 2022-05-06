@@ -20,6 +20,12 @@ class CourseController extends Controller
         return view('admin.courses.add');
     }
 
+    Public function edit($course){
+        $editCourse = Course::find($course);
+        return view('admin.courses.edit', compact('editCourse'));
+    }
+
+
     public function store(Request $request){
         $course = new Course;
         $course->title = $request->course_title;

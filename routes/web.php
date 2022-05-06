@@ -32,7 +32,9 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/viewcourses', 'CourseController@index')->name('admin.viewcourses');
     Route::get('/addcourses', 'CourseController@create')->name('admin.addcourses');
     Route::post('/storecourse', 'CourseController@store')->name('course.store');
-    
+    Route::get('/editcourse/{course}', 'CourseController@edit')->name('course.edit');
+    Route::put('/editcourse/{course}', 'CourseController@update')->name('course.update');
+
     //admintutors
     Route::get('/viewtutors', 'TutorController@index')->name('admin.viewtutors');
     Route::get('/addtutors', 'TutorController@create')->name('admin.addtutors');
