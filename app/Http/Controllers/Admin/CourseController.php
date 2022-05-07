@@ -25,12 +25,21 @@ class CourseController extends Controller
         return view('admin.courses.edit', compact('editCourse'));
     }
 
+    public function update(Request $request, $course){
+        $course = Course::find($course);
+        // dd($course);
+        $course->title = $request->course_title;
+        $course->code = $request->course_code;
+        $course->save();
+
+        return redirect()->route('admin.viewcourses')->with('success', 'Course updated successfully!');;
+    }
 
     public function store(Request $request){
         $course = new Course;
         $course->title = $request->course_title;
         $course->code = $request->course_code;
         $course->save();
-        return redirect()->route('admin.addcourses');
+        return redirect()->route('admin.addcourses')->with('success', 'Course created successfully!');;
     }
 }

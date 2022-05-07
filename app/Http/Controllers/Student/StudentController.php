@@ -26,17 +26,32 @@ class StudentController extends Controller
         return view('/index', compact('courses'));
     }
 
+    /**
+     * Displays list of student that are registered from the Users table + their courses,
+     * Admin can take some action here, like to edit
+     */
     public function create(){
         $students = Student::latest()->get();
         $courses = $this->courses::all();
         return view('admin.students.view', compact('students', 'courses'));
     }
 
+    /**
+     * Displays the selected student course registration,
+     * System redirects to another page for each student or user with information of their courses by ID.
+     * 
+     */
     public function view($id){
         $student = Student::latest()->where('id', $id)->with('courses')->first();
         return view('admin.students.eachstudentcourses', compact('student'));
     }
 
+     /**
+     * Saves the student record alongside with the courses that has been uploaded by the admin,
+     * System then, redirects the Student to same page if after successfull registeration and shows a success message or otherwise
+     * Upon successful registration, the selected courses are saved to a pivot table for the Student.
+     * 
+     */
     public function store(Request $request){
         $students = new Student;
         $user = new User;
@@ -52,7 +67,7 @@ class StudentController extends Controller
         $students->user_id = $user->id;
         $students->save();
 
-        //get list of selected courses from students to be saved to database
+        //get list of selected courses from students to be saved to db
         $selectedStudentCourses = $request->course_id;
             foreach ( $selectedStudentCourses as $selectedStudentCourse) {
                 $studentCourse = new CourseStudent;
@@ -60,6 +75,6 @@ class StudentController extends Controller
                 $studentCourse->course_id = $selectedStudentCourse;            
                 $studentCourse->save();
             }
-        return redirect()->route('students');
+        return redirect()->route('students')->with('success', 'Students created successfully!');;
     }    
 }

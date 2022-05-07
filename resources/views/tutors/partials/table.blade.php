@@ -19,7 +19,7 @@
                     <td>{{$tutor->user->full_name}}</td>
                     <td>{{$tutor->user->email}}</td>
                     <td><a class="btn btn-success" href="{{route('admin.mycourse', $tutor->id)}}">View courses</a></td>
-                    <td><a class="btn btn-danger" href="">Delete</a></td>
+                    <td><a class="btn btn-danger" href="">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>

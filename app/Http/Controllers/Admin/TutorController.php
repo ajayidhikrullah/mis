@@ -28,6 +28,12 @@ class TutorController extends Controller
             return view('admin.tutors.eachtutorcourses', compact('tutor'));
     }
 
+    /**
+     * Admin Saves the Tutor records alongside, assign some courses that has been uploaded by the admin in the course tb
+     * System then, redirects the Admin to  page if after successfull registeration and shows a success message or otherwise
+     * Upon successful registration, the selected courses are saved to a pivot table for the Student.
+     * 
+     */
     public function store(Request $request){
 
         $user = new User;
@@ -51,6 +57,6 @@ class TutorController extends Controller
                 $tutorCourse->course_id = $selectedCourse;            
                 $tutorCourse->save();
             }
-        return redirect()->route('admin.addtutors');
+        return redirect()->route('admin.addtutors')->with('success', 'Tutor created successfully!');;
     }
 }

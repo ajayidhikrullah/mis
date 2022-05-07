@@ -12,6 +12,6 @@
       <label for="code">Edit Course Code</label>
       <input type="text" value="{{old('code') ?? $editCourse->code}}" class="form-control" name="course_code" id="code" aria-describedby="code" placeholder="edit course code here">
     </div>
-
+    {{method_field('PUT')}}
     <button type="submit" class="btn btn-primary">Edit</button>
 </form>

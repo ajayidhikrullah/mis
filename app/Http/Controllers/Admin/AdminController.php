@@ -15,7 +15,4 @@ class AdminController extends Controller
         $students = Student::all();
         return view('admin.dashboard', compact('students'));
     }
-
-
-
 }
