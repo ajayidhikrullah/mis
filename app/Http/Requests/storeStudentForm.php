@@ -26,11 +26,11 @@ class storeStudentForm extends FormRequest
     {
         return [
             //
-                'student_full_name' => 'required|string',
-                'email|unique|required',
-                'student_phone|required',
-                'student_address|required',
-                'student_password|required',
+                'student_full_name' => 'required',
+                'student_email' => 'required|unique:users,email',
+                'student_phone' => 'required',
+                'student_address' => 'required',
+                'student_password' => 'required',
             
         ];
     }

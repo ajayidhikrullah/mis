@@ -58,7 +58,7 @@ class StudentController extends Controller
      * Upon successful registration, the selected courses are saved to a pivot table for the Student.
      * 
      */
-    public function store(storeStudentForm $request){
+    public function store(StoreStudentForm $request){
         $students = new Student;
         $user = new User;
 

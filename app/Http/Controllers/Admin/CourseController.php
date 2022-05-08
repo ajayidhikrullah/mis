@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\StoreCourseForm;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Course;
 
 class CourseController extends Controller
@@ -35,7 +37,7 @@ class CourseController extends Controller
         return redirect()->route('admin.viewcourses')->with('success', 'Course updated successfully!');;
     }
 
-    public function store(Request $request){
+    public function store(StoreCourseForm $request){
         $course = new Course;
         $course->title = $request->course_title;
         $course->code = $request->course_code;
