@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\storeStudentForm;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+
 use App\Models\Course;
 use App\Models\Student;
 use App\Models\User;
@@ -14,7 +16,7 @@ use App\Models\CourseStudent;
 class StudentController extends Controller
 {
 
-    public $courses;
+    public $courses;    
 
     public function __construct(Course $courses){
         $this->courses = $courses;
@@ -39,10 +41,14 @@ class StudentController extends Controller
     /**
      * Displays the selected student course registration,
      * System redirects to another page for each student or user with information of their courses by ID.
-     * 
+     * Also checks for if student selected less than 1 or equal to 1 course, Student SHOULD select more than One.
      */
     public function view($id){
         $student = Student::latest()->where('id', $id)->with('courses')->first();
+            if ($student->count() <= 1) {
+                # code...
+                return redirect()->back()->with('info', 'Sorry, please select more than 1 course');
+            }
         return view('admin.students.eachstudentcourses', compact('student'));
     }
 
@@ -52,7 +58,7 @@ class StudentController extends Controller
      * Upon successful registration, the selected courses are saved to a pivot table for the Student.
      * 
      */
-    public function store(Request $request){
+    public function store(storeStudentForm $request){
         $students = new Student;
         $user = new User;
 
@@ -75,6 +81,6 @@ class StudentController extends Controller
                 $studentCourse->course_id = $selectedStudentCourse;            
                 $studentCourse->save();
             }
-        return redirect()->route('students')->with('success', 'Students created successfully!');;
+        return redirect()->route('students')->with('success', 'Students created successfully!');
     }    
 }

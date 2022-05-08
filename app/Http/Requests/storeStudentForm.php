@@ -14,7 +14,7 @@ class storeStudentForm extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,28 @@ class storeStudentForm extends FormRequest
     {
         return [
             //
+                'student_full_name' => 'required|string',
+                'email|unique|required',
+                'student_phone|required',
+                'student_address|required',
+                'student_password|required',
             
+        ];
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'student_full_name.required' => 'Please, enter your full name',
+            'student_email.required' => 'Please, enter your email address',
+            'student_phone.required' => 'Please, enter your phone number',
+            'student_address.required' => 'Please, enter your address',
+            'student_password.required' => 'Please enter your password',
         ];
     }
 }

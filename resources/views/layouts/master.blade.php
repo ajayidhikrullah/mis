@@ -44,18 +44,40 @@
     </nav>
 
     <div class="container">
-        @yield('contents')
-        
-    </div>
+      <div class="container">
+        {{-- globally display success or error message in the app --}}
+        @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+            @php
+                Session::forget('success');
+            @endphp
+        </div>
+    @endif
+    @if(Session::has('info'))
+        <div class="alert alert-info">
+            {{ Session::get('info') }}
+            @php
+                Session::forget('info');
+            @endphp
+        </div>
+    @endif
+    @if(Session::has('error'))
+        <div class="alert alert-error">
+            {{ Session::get('error') }}
+            @php
+                Session::forget('error');
+            @endphp
+        </div>
+    @endif
+    
+    @yield('contents')
 
+    
+  </div>
 </body>
 </html>
-    
-    
-
-
-
-
+  
 
 
 
