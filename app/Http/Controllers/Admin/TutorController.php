@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Hash;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTutorForm;
+
 use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\Course;
@@ -34,7 +36,7 @@ class TutorController extends Controller
      * Upon successful registration, the selected courses are saved to a pivot table for the Student.
      * 
      */
-    public function store(Request $request){
+    public function store(StoreTutorForm $request){
 
         $user = new User;
         $tutors = new Tutor;
