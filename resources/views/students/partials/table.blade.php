@@ -17,8 +17,8 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$student->user->full_name}}</td>
                     <td>{{$student->user->email}}</td>
-                    <td><a class="btn btn-success" href="{{route('mycourses', $student->id)}}">View courses</a></td>
-                    <td><a class="btn btn-primary" href="">Edit</a></td>
+                    <td><a class="btn btn-success" href="{{route('studentcourses', $student->id)}}">View courses</a></td>
+                    <td><a class="btn btn-primary" href="{{route('editstudent', $student->id)}}">Edit</a></td>
                     <td><a class="btn btn-danger" href="">Delete</a></td>
                 </tr>
             @endforeach

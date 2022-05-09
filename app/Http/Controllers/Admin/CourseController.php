@@ -13,7 +13,6 @@ class CourseController extends Controller
     //show courses
     public function index(){
         $courses = Course::latest()->get();
-        // dd($courses);
         return view('admin.courses.view', compact('courses'));
     }
 
@@ -27,7 +26,7 @@ class CourseController extends Controller
         return view('admin.courses.edit', compact('editCourse'));
     }
 
-    public function update(Request $request, $course){
+    public function update(StoreCourseForm $request, $course){
         $course = Course::find($course);
         // dd($course);
         $course->title = $request->course_title;
@@ -35,6 +34,11 @@ class CourseController extends Controller
         $course->save();
 
         return redirect()->route('admin.viewcourses')->with('success', 'Course updated successfully!');;
+    }
+
+    public function delete($course){
+        $course = Course::where('id', $course)->delete();
+        return redirect()->route('admin.viewcourses')->with('success', 'Course deleted successfully!');;   
     }
 
     public function store(StoreCourseForm $request){
