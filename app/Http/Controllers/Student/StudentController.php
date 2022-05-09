@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\storeStudentForm;
+use App\Http\Requests\UpdateStudentForm;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -66,37 +67,37 @@ class StudentController extends Controller
 
     Public function edit($student){
         // $editStudent = $this->view($id);
-        $editStudent = $this->students->latest()->where('id', $student)->with('courses')->first()->find();
+        $editStudent = $this->students->latest()->where('id', $student)->with('courses')->find($student);
         // dd($editStudent->user->full_name);
-        // $editStudent = $this->students::find($student);
         $courses = $this->courses::all();
         // $users = $this->users::all();
         return view('admin.students.edit', compact('editStudent', 'courses'));
     }
 
-    public function update(StoreStudentForm $request, $student){
+    public function update(UpdateStudentForm $request, $student){
+        // dd(func_get_args());
+        // dd($request->all(), $student);
         $students = $this->students->find($student);
-        $user = $this->users($student);
-
+        $user = User::where('id', $students->user_id)->first();
+        // dd($user);
         $user->full_name = $request->student_full_name;
         $user->email = $request->student_email;
         $user->phone = $request->student_phone;
         $user->address = $request->student_address;
-        $user->password = hash::make($request->student_password);
+        // $user->password = Hash::make($request->student_password);
         $user->save();
-
-        //save to the corresponsiding user_id field in students tb
-        $students->user_id = $user->id;
-        $students->save();
 
         //get list of selected choice of courses from students to be saved to db
         $selectedStudentCourses = $request->course_id;
+        if (isset($selectedStudentCourses)) {
             foreach ( $selectedStudentCourses as $selectedStudentCourse) {
                 $studentCourse = $this->coursestudents;
                 $studentCourse->student_id = $students->id;
                 $studentCourse->course_id = $selectedStudentCourse;            
                 $studentCourse->save();
             }
+        }
+            
         return redirect()->route('viewstudents')->with('success', 'Students Updated successfully!');
     }    
     
