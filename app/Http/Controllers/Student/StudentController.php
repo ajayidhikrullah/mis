@@ -84,7 +84,6 @@ class StudentController extends Controller
         $user->email = $request->student_email;
         $user->phone = $request->student_phone;
         $user->address = $request->student_address;
-        // $user->password = Hash::make($request->student_password);
         $user->save();
 
         //get list of selected choice of courses from students to be saved to db
