@@ -81,8 +81,12 @@ class TutorController extends Controller
         return redirect()->route('admin.viewtutors')->with('success', 'Tutor Updated successfully!');
     }    
     
-    //delete selected student record including the related models
-    public function delete($id){
+    /**
+     * Validate tutors records coming from admin
+     * Insert course data in the model
+     * return success message if no error
+     */
+        public function delete($id){
         $tutor = $this->tutors::where('id', $id)->with('courses')->first();
         DB::table('tutor_courses')->where('tutor_id', $tutor->id)->delete();
         $user = User::findOrFail($tutor->user_id);
@@ -93,10 +97,9 @@ class TutorController extends Controller
 
 
     /**
-     * Admin Saves the Tutor records alongside, assign some courses that has been uploaded by the admin in the course tb
-     * System then, redirects the Admin to  page if after successfull registeration and shows a success message or otherwise
-     * Upon successful registration, the selected courses are saved to a pivot table for the Student.
-     * 
+     * Validate Course forms
+     * Insert course data in the model
+     * return success message if true
      */
     public function store(StoreTutorForm $request){
 

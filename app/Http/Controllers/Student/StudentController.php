@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\storeStudentForm;
 use App\Http\Requests\UpdateStudentForm;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -70,7 +71,6 @@ class StudentController extends Controller
         $editStudent = $this->students->latest()->where('id', $student)->with('courses')->find($student);
         // dd($editStudent->user->full_name);
         $courses = $this->courses::all();
-        // $users = $this->users::all();
         return view('admin.students.edit', compact('editStudent', 'courses'));
     }
 
@@ -102,8 +102,12 @@ class StudentController extends Controller
     
     //delete selected student record
     public function delete($student){
-        $course = $this->students::where('id', $student)->delete();
-        return redirect()->route('viewstudents')->with('success', '<i>Student record</i> deleted successfully!');;   
+        $student = $this->students::where('id', $student)->with('courses')->first();
+        DB::table('course_students')->where('student_id', $student->id)->delete();
+        $user = User::findOrFail($student->user_id);
+        $student->delete();
+        $user->delete();
+        return redirect()->route('viewstudents')->with('success', 'Student record deleted successfully!');;   
     }
 
      /**

@@ -40,7 +40,7 @@ Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
     Route::get('/editcourse/{course}', 'CourseController@edit')->name('course.edit');
     Route::put('/editcourse/{course}', 'CourseController@update')->name('course.update');
     Route::get('/deletecourse/{course}', 'CourseController@delete')->name('course.delete');
-
+    
 
     //admintutors
     Route::get('/viewtutors', 'TutorController@index')->name('admin.viewtutors');
