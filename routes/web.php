@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 // home route
 Route::group(['namespace' => 'Student'], function(){
     Route::get('/', 'StudentController@index')->name('students');
@@ -26,6 +27,10 @@ Route::group(['namespace' => 'Student'], function(){
     Route::get('/editstudent/student/{student}', 'StudentController@edit')->name('editstudent');
     Route::put('/editstudent/student/{student}', 'StudentController@update')->name('updatestudent');
     Route::get('/deletestudent/student/{student}', 'StudentController@delete')->name('deletestudent');
+
+    //SignIn
+    Route::get('/signup', 'RegisterController@create')->name('signup');
+
 
 });
 
