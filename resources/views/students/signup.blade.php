@@ -2,8 +2,8 @@
     
     @section('contents')
 
-    <div class="container">
-        <div class="col-6">    
+    <div class="container bg-light">
+        <div class="col-8">    
             <p><a href="javascript:history.back()">.../Back</a></p>
             <h1>Register here</h1>
                 <form method="POST" action="">

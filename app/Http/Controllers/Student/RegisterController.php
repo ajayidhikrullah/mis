@@ -11,4 +11,8 @@ class RegisterController extends Controller
     public function create(){
         return view('students.signup');
     }
+
+    public function store(){
+        
+    }
 }

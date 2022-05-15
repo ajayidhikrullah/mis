@@ -28,8 +28,9 @@ Route::group(['namespace' => 'Student'], function(){
     Route::put('/editstudent/student/{student}', 'StudentController@update')->name('updatestudent');
     Route::get('/deletestudent/student/{student}', 'StudentController@delete')->name('deletestudent');
 
-    //SignIn
+    //Student Registeration, Sign In, Login, Logout
     Route::get('/signup', 'RegisterController@create')->name('signup');
+    // Route::get('/signup', 'RegisterController@store');
 
 
 });

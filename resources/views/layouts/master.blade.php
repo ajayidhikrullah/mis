@@ -11,44 +11,45 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="/admin">Management Information System</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Tutor</a>
+    <div class="">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="/admin">Management Information System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Tutor</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{{route('admin.addtutors')}}">Add Tutor</a>
+                      <a class="dropdown-item" href="{{route('admin.viewtutors')}}">View Tutor</a>
+                    </div>
+                  </li>
+
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Courses</a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{{route('admin.addtutors')}}">Add Tutor</a>
-                  <a class="dropdown-item" href="{{route('admin.viewtutors')}}">View Tutor</a>
+                  <a class="dropdown-item" href="{{route('admin.addcourses')}}">Add Courses</a>
+                  <a class="dropdown-item" href="{{route('admin.viewcourses')}}">View Courses</a>
                 </div>
               </li>
 
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Courses</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{route('admin.addcourses')}}">Add Courses</a>
-              <a class="dropdown-item" href="{{route('admin.viewcourses')}}">View Courses</a>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Students</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{route('viewstudents')}}">View Students</a>
-              {{-- <a class="dropdown-item" href="tutors">Add Courses</a> --}}
-            </div>
-        </li>        
-        </ul>
-
-      </div>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="admin" role="button" aria-haspopup="true" aria-expanded="false">Students</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{{route('viewstudents')}}">View Students</a>
+                  {{-- <a class="dropdown-item" href="tutors">Add Courses</a> --}}
+                </div>
+            </li>        
+            </ul>
+          </div>
+      </nav>
     </div>
-</nav>
-
+    
+    <br/>
     <div class="container">
       <div class="container">
         {{-- globally display success or error message in the app --}}
@@ -77,7 +78,13 @@
         </div>
     @endif
     
-    @yield('contents')
+    <div class="container">
+
+      @yield('contents')
+      
+
+    </div>
+
 
     
   </div>
