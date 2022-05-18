@@ -6,7 +6,7 @@
         <div class="col-8">    
             <p><a href="javascript:history.back()">.../Back</a></p>
             <h1>Register here</h1>
-                <form method="POST" action="">
+                <form method="POST" action="{{route('signup.store')}}">
                     <div class="form-group">
                         <label for="full_name">Students name</label>
                         <input type="text" name="student_full_name" class="form-control" id="full_name" placeholder="type in your full name">
@@ -23,6 +23,22 @@
                         <span class="text-danger">{{ $errors->first('student_email') }}</span>
                         @endif
                     </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                         <input type="text" class="form-control" name="student_phone" id="phone" aria-describedby="phone" placeholder="Enter your Phone number">
+                         @if ($errors->has('student_phone'))
+                           <span class="text-danger">{{ $errors->first('student_phone') }}</span>
+                         @endif
+                     </div>
+         
+                     <div class="form-group">
+                         <label for="Address">Address</label>
+                         <input type="text" class="form-control" name="student_address" id="address" aria-describedby="address" placeholder="Enter your address">
+                         @if ($errors->has('student_address'))
+                           <span class="text-danger">{{ $errors->first('student_address') }}</span>
+                         @endif
+                     </div>
         
                     <div class="form-group">
                         <label for="password">Password</label>

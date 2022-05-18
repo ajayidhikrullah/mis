@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameStudentCoursesTable extends Migration
+class AddRoleIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class RenameStudentCoursesTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::rename('student_courses', 'course_students');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('role_id')->after('id')->onDelete('SET NULL');
+        });
     }
 
     /**
@@ -24,7 +25,9 @@ class RenameStudentCoursesTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('course_students');
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->dropColumn('role_id');
+        });
     }
 }
