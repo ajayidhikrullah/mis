@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Student'], function(){
     //Student Registeration, Sign In, Login, Logout
     Route::get('/signup', 'RegisterController@create')->name('signup');
     Route::post('/signup', 'RegisterController@store')->name('signup.store');
+    Route::get('/login', 'RegisterController@login')->name('login');
 
 
 });

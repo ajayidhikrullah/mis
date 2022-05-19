@@ -33,8 +33,6 @@ class RegisterController extends Controller
         ]);
         //confirm the role of the student and submit
         $studentRole = $this->role->find(2);
-        // dd($studentRole->id);        
-
         // dd($signUp);
 
         $this->user::create([
