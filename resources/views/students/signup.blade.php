@@ -50,7 +50,7 @@
 
                     <div class="form-group">
                         <label for="password">Re-Enter Password</label>
-                        <input type="password" class="form-control" name="student_password" id="password" aria-describedby="password" placeholder="Enter your default password">
+                        <input type="password" class="form-control" name="password_confirmation" id="password" aria-describedby="password" placeholder="Enter your default password">
                         @if ($errors->has('student_password'))
                         <span class="text-danger">{{ $errors->first('student_password') }}</span>
                         @endif
