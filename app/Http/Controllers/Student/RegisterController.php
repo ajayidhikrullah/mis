@@ -27,13 +27,12 @@ class RegisterController extends Controller
         return view('students.login');
     }
 
-    
 
     public function store(){
         $signUp = request()->validate([
             'student_full_name' => 'required|max:255|min:3',
             'student_email' => 'required|email|max:255',
-            'student_password' => 'required|confirmed|min:7|max:255',
+            'password' => 'required|confirmed|min:5|max:255',
             'student_phone' => 'required|max:255|min:3',
             'student_address' => 'required|max:255|min:3',
         ]);
@@ -45,11 +44,11 @@ class RegisterController extends Controller
             'role_id' => $studentRole->id,
             'full_name' => $signUp['student_full_name'],
             'email' => $signUp['student_email'], 
-            'password' => $signUp['student_password'],
+            'password' => bcrypt($signUp['password']),
             'phone' => $signUp['student_phone'],
             'address' => $signUp['student_address'],
         ]);
 
-        return redirect()->route('students')->with( 'success', 'Successfully Registered!');
+        return redirect()->route('login')->with( 'success', 'Successfully Registered, Please login');
     }
 }
