@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Student;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -40,14 +41,18 @@ class RegisterController extends Controller
         $studentRole = $this->role->find(2);
         // dd($signUp);
 
-        $this->user::create([
+        auth()->login($this->user::create([
             'role_id' => $studentRole->id,
             'full_name' => $signUp['student_full_name'],
             'email' => $signUp['student_email'], 
             'password' => bcrypt($signUp['password']),
             'phone' => $signUp['student_phone'],
             'address' => $signUp['student_address'],
-        ]);
+        ]));
+
+        // log the user in partially
+        // auth()->login();
+
 
         return redirect()->route('login')->with( 'success', 'Successfully Registered, Please login');
     }
