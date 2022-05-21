@@ -24,11 +24,6 @@ class RegisterController extends Controller
         return view('students.signup');
     }
 
-    public function login(){
-        return view('students.login');
-    }
-
-
     public function store(){
         $signUp = request()->validate([
             'student_full_name' => 'required|max:255|min:3',

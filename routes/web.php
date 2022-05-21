@@ -29,12 +29,20 @@ Route::group(['namespace' => 'Student'], function(){
     Route::get('/deletestudent/student/{student}', 'StudentController@delete')->name('deletestudent');
 
     //Student Registeration, Sign In, Login, Logout
-    Route::get('/signup', 'RegisterController@create')->name('signup');
+    Route::get('/signup', 'RegisterController@create')->name('signup'); //if u are signed in, no need to register. If you are signedIn, then we need to redirect to somewhere else
     Route::post('/signup', 'RegisterController@store')->name('signup.store');
-    Route::get('/login', 'RegisterController@login')->name('login');
-
-
 });
+
+/***
+ * login Route
+ * 
+ * */
+
+Route::get('/login', 'LoginController@login')->name('login'); //guest needs to use this to get auth
+Route::post('/logout', 'LoginController@destroy'); //u can only logout if you are authenticated or signedin
+Route::post('/login', 'LoginController@store')->name('login.store');
+
+
 
 // admin
 Route::group(['prefix' =>'admin', 'namespace' => 'Admin'], function(){
