@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 // home route
 Route::group(['namespace' => 'Student'], function(){
-    Route::get('/', 'StudentController@index')->name('students');
+    Route::get('/', 'StudentController@index')->middleware('auth')->name('students');
     Route::get('/viewstudents', 'StudentController@create')->name('viewstudents');
     Route::post('/storestudents', 'StudentController@store')->name('students.store');
     // Route::get('/student/courses/{id}', 'StudentController@view')->name('studentsrecord');
