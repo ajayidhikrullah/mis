@@ -51,7 +51,7 @@
             {{-- nav on the far end right --}}
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='fas fa-users' style='font-size:48px;color:#fff'></i></a>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='fas fa-users' style='font-size:30px;color:#fff'></i>Signup/Login As?</a>
 
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{{route('signup')}}">Students</a></li>
