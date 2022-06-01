@@ -30,8 +30,7 @@ class storeStudentForm extends FormRequest
                 'student_email' => 'required|unique:users,email',
                 'student_phone' => 'required',
                 'student_address' => 'required',
-                'student_password' => 'required',
-            
+                'student_password' => 'required',            
         ];
     }
 

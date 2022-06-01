@@ -1,6 +1,6 @@
 @extends('layouts.master')
     @section('contents')
-        <h1>Kindly login here</p>
+        {{-- <h1>Kindly login here</p> --}}
         <main class="form-signin w-100 m-auto">
             <form action="{{route('login.store')}}" method="POST">
                 {{csrf_field()}}
