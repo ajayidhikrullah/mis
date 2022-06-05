@@ -6,3 +6,5 @@
 - Create your new .env file
 - Seed the DB _PHP artisan db:seed_
 - serve the app: _php artisan serve_
+
+> Backend: Purely PHP-Laravel
