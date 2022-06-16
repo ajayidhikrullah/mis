@@ -43,8 +43,8 @@ class storeStudentForm extends FormRequest
     {
         return [
             'student_full_name.required' => 'Please, enter your full name',
-            'student_email.required' => 'Please, enter your email address',
-            'student_phone.required' => 'Please, enter your phone number',
+            'student_email.required' => 'Please, type in your email address',
+            'student_phone.required' => 'Please, enter your phone-number',
             'student_address.required' => 'Please, enter your address',
             'student_password.required' => 'Please enter your password',
         ];
