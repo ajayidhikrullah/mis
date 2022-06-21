@@ -5,7 +5,7 @@
             <th scope="col">S/N</th>
             <th scope="col">Course title</th>
             <th scope="col">Course Code</th>
-            <th scope="col"> Take Action</th>
+            <th scope="col">Take Action</th>
         </tr>
     </thead>
     <tbody>
